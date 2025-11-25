@@ -74,7 +74,8 @@ class OpenAIClient(LLMClient):
                     'Received a "429 Client Error: Too Many Requests" response. '
                     "On the lowest tier, you are rate limited to 3 requests per "
                     "minute. We will start sending one request every "
-                    f"{self.retry_after_time} seconds."
+                    f"{self.retry_after_time} seconds.\n\n<br/><br/>"
+                    f"<b>OpenAI Error:</b> {response.text}"
                 ) from exc
             raise ExternalException(
                 f"Error: {response.status_code} {response.reason}\n{response.text}"
