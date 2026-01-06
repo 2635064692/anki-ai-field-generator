@@ -32,12 +32,17 @@ class UITools:
         label.setWordWrap(True)
         return label
 
-    def create_dropdown(self, setting_name, items: list[str]):
+    def create_dropdown(self, setting_name, items: list[str], allow_custom=False):
         combo_box = QComboBox()
         combo_box.setMaximumWidth(self.max_width)
         combo_box.addItems(items)
+        if allow_custom:
+            combo_box.setEditable(True)
         setting_value = self.settings.value(setting_name)
-        combo_box.setCurrentText(setting_value)
+        if setting_value:
+            if setting_value not in items:
+                combo_box.addItem(setting_value)
+            combo_box.setCurrentText(setting_value)
         self.widgets[setting_name] = combo_box
         return combo_box
 

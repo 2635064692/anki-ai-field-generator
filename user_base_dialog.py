@@ -53,6 +53,7 @@ class UserBaseDialog(QWidget, metaclass=MyMeta):
 
         self.add_models_dropdown(left_layout)
         self.add_api_key(left_layout)
+        self.add_base_url(left_layout)
         self.add_system_prompt(
             left_layout, self.system_prompt_description, self.system_prompt_placeholder
         )
@@ -156,13 +157,24 @@ class UserBaseDialog(QWidget, metaclass=MyMeta):
     def add_models_dropdown(self, layout):
         layout.addWidget(self.ui_tools.create_label("Model Name:"))
         layout.addWidget(
-            self.ui_tools.create_dropdown(SettingsNames.MODEL_SETTING_NAME, self.models)
+            self.ui_tools.create_dropdown(
+                SettingsNames.MODEL_SETTING_NAME, self.models, allow_custom=True
+            )
         )
 
     def add_api_key(self, layout):
         layout.addWidget(self.ui_tools.create_label(f"{self.service_name} API Key:"))
         layout.addWidget(
             self.ui_tools.create_text_entry(SettingsNames.API_KEY_SETTING_NAME)
+        )
+
+    def add_base_url(self, layout):
+        layout.addWidget(self.ui_tools.create_label("Base URL (optional):"))
+        layout.addWidget(
+            self.ui_tools.create_text_entry(
+                SettingsNames.BASE_URL_SETTING_NAME,
+                placeholder="https://api.openai.com/v1",
+            )
         )
 
     def add_system_prompt(
