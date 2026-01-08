@@ -128,6 +128,11 @@ class UserBaseDialog(QWidget, metaclass=MyMeta):
 
     @property
     @abstractmethod
+    def base_url(self):
+        """Default base URL for the service"""
+
+    @property
+    @abstractmethod
     def system_prompt_description(self):
         """User friendly description for the system prompt"""
 
@@ -174,7 +179,7 @@ class UserBaseDialog(QWidget, metaclass=MyMeta):
         layout.addWidget(
             self.ui_tools.create_text_entry(
                 SettingsNames.BASE_URL_SETTING_NAME,
-                placeholder="https://api.openai.com/v1",
+                placeholder=self.base_url,
             )
         )
 
