@@ -46,9 +46,11 @@ class UITools:
         self.widgets[setting_name] = combo_box
         return combo_box
 
-    def create_text_entry(self, setting_name, placeholder=""):
+    def create_text_entry(self, setting_name, placeholder="", default_value=None):
         setting_value = self.settings.value(setting_name)
-        entry = QLineEdit(setting_value)
+        if setting_value in (None, ""):
+            setting_value = "" if default_value is None else str(default_value)
+        entry = QLineEdit(str(setting_value))
         entry.setPlaceholderText(placeholder)
         entry.setMaximumWidth(self.max_width)
         self.widgets[setting_name] = entry
