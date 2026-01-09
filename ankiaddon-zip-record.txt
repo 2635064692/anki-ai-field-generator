@@ -1,1 +1,0 @@
-cd "/mnt/c/Users/26350/AppData/Roaming/Anki2/addons21/anki-ai-field-generator-main/anki-ai-field-generator-main" && zip -r "/mnt/c/Users/26350/Desktop/anki-ai-field-generator.ankiaddon" . -x "*.git*" -x "*.pyc" -x "__pycache__/*" -x "*.sh" -x "requirements*.txt" -x ".pylintrc" -x "*_test.py"
