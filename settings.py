@@ -10,6 +10,7 @@ class SettingsNames:
     BASE_URL_SETTING_NAME = "base_url"
     DESTINATION_FIELD_SETTING_NAME = "destination_field"
     LLM_CLIENT_NAME = "llm_client_name"
+    MAX_RPM_SETTING_NAME = "max_rpm"
     MODEL_SETTING_NAME = "model"
     SYSTEM_PROMPT_SETTING_NAME = "system_prompt"
     USER_PROMPT_SETTING_NAME = "user_prompt"
