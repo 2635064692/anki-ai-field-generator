@@ -51,7 +51,7 @@ class GeminiClient(LLMClient):
                 self.prompt_config.response_keys
             ),
         }
-        data["generationConfig"]["maxOutputTokens"] = 1024
+        data["generationConfig"]["maxOutputTokens"] = 5120
 
         # Add system instruction if available
         if (
